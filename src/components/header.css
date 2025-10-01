@@ -1,0 +1,449 @@
+/* Header.css */
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 80px;
+  transition: all 0.3s ease;
+}
+
+.header-scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Logo styles */
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 0;
+  text-align: center;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #2c3e50;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.header-scrolled {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+/* Menu button */
+.menu-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.menu-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  margin-left: 110px;
+}
+
+.menu-line {
+  width: 25px;
+  height: 3px;
+  background-color: #ecf0f1;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+/* Animation for when menu is open */
+.line-1-open {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.line-2-open {
+  opacity: 0;
+}
+
+.line-3-open {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Menu popup */
+.menu-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  min-width: 240px;
+  z-index: 1000;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.menu-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Make Home item darker and bolder than all others */
+.menu-item:first-child {
+  font-weight: 900;
+  color: #1a2530;
+  font-size: 18px;
+}
+
+/* Style for all other menu items (lighter than Home) */
+.menu-item:nth-child(2), /* Growth Advisory */
+.menu-item:nth-child(3), /* Consulting and Advisory */
+.menu-item:nth-child(4), /* Technology Transformation */
+.menu-item:nth-child(5), /* Next Gen Services */
+.menu-item:nth-child(6), /* Our Solutions */
+.menu-item:nth-child(7), /* Talent Unleashed */
+.menu-item:nth-child(8)  /* CSR */ {
+  font-size: 18px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+/* Ensure "Consulting and Advisory" stays on one line */
+.menu-item:nth-child(3) {
+  min-width: 220px;
+  letter-spacing: 0.3px;
+}
+
+.menu-item:hover {
+  background-color: #f8f9fa;
+  transform: scale(1.02);
+}
+
+/* Logo styles - Centered with increased size */
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.logo-text {
+  margin: 0;
+  color: #ecf0f1;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-popup {
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    min-width: unset;
+  }
+  
+  .logo-text {
+    font-size: 1.6rem;
+    position: relative;
+    left: 0;
+    transform: none;
+    text-align: left;
+    letter-spacing: normal;
+  }
+  
+  /* Adjust font sizes for mobile */
+  .menu-item {
+    font-size: 15px;
+    white-space: normal;
+    padding: 10px 15px;
+  }
+  
+  .menu-item:first-child {
+    font-size: 16px;
+    font-weight: 800;
+  }
+  
+  .menu-item:nth-child(2),
+  .menu-item:nth-child(3),
+  .menu-item:nth-child(4),
+  .menu-item:nth-child(5),
+  .menu-item:nth-child(6),
+  .menu-item:nth-child(7),
+  .menu-item:nth-child(8) {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  /* Reset specific styles for mobile */
+  .menu-item:nth-child(3) {
+    min-width: unset;
+    letter-spacing: normal;
+  }
+  
+  /* Center logo on mobile */
+  .header-content {
+    justify-content: space-between;
+  }
+  
+  .logo-container {
+    position: static;
+    transform: none;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1.4rem;
+  }
+}
+
+/* Offcanvas Menu Styles */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-open {
+  left: 0;
+}
+
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  background-color: #2c3e50;
+  color: white;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.offcanvas-title {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+  flex: 1;
+}
+
+.offcanvas-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offcanvas-body {
+  flex: 1;
+  padding: 2rem 0; /* Added padding top and bottom for equal space */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.offcanvas-item {
+  padding: 15px 20px; /* Reduced padding since we have container padding */
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 18px;
+  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 55px; /* Reduced min-height since we have container padding */
+  box-sizing: border-box;
+}
+
+.offcanvas-item:first-child {
+  font-weight: 900;
+  color: #1a2530;
+  font-size: 20px;
+  background-color: #f8f9fa;
+}
+
+.offcanvas-item:last-child {
+  border-bottom: none;
+}
+
+.offcanvas-item:hover {
+  background-color: #f8f9fa;
+  transform: scale(1.02);
+}
+
+/* Add space above and below the menu items */
+.offcanvas-body::before,
+.offcanvas-body::after {
+  content: '';
+  flex: 1;
+  min-height: 2rem; /* Minimum space above and below */
+}
+
+.offcanvas-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1099;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Enhanced menu button animation */
+.menu-line {
+  width: 25px;
+  height: 3px;
+  background-color: #ecf0f1;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+.line-1-open {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.line-2-open {
+  opacity: 0;
+}
+
+.line-3-open {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive styles for offcanvas */
+@media (max-width: 480px) {
+  .offcanvas-menu {
+    width: 280px;
+    left: -280px;
+  }
+  
+  .offcanvas-body {
+    padding: 1.5rem 0; /* Slightly less padding on mobile */
+  }
+  
+  .offcanvas-item {
+    font-size: 16px;
+    padding: 12px 15px;
+    min-height: 50px;
+  }
+  
+  .offcanvas-item:first-child {
+    font-size: 18px;
+  }
+  
+  /* Adjust space above and below for mobile */
+  .offcanvas-body::before,
+  .offcanvas-body::after {
+    min-height: 1.5rem;
+  }
+}
+
+/* Prevent body scrolling when menu is open */
+body.offcanvas-open {
+  overflow: hidden;
+}

@@ -22,9 +22,7 @@ export default function Form() {
     try {
       const response = await fetch('http://localhost:8000/api/contact/create', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -38,25 +36,89 @@ export default function Form() {
 
       console.log('Server response:', result);
       alert('Form submitted successfully!');
-      // Optionally reset the form
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        country: ''
-      });
+      setFormData({ name: '', phone: '', email: '', country: '' });
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('There was an error submitting the form. Please try again.');
     }
   };
 
+  // ✅ Inline Styles
+  const containerStyle = {
+    maxWidth: '600px',
+    width: '90%',
+    margin: '40px auto',
+    padding: '60px 20px',
+    fontFamily: 'Arial, sans-serif',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+
+  const formStyle = {
+    width: '100%',
+    background: '#f9f9f9',
+    padding: '25px',
+    borderRadius: '10px',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+    boxSizing: 'border-box',
+  };
+
+  const headingStyle = {
+    textAlign: 'center',
+    color: '#333',
+    marginBottom: '25px',
+  };
+
+  const groupStyle = {
+    marginBottom: '20px',
+    width: '100%',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    marginBottom: '8px',
+    fontWeight: 'bold',
+    color: '#333',
+  };
+
+  const inputStyle = {
+    width: '100%',
+    padding: '12px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    fontSize: '15px',
+    boxSizing: 'border-box',
+  };
+
+  const selectStyle = {
+    ...inputStyle,
+  };
+
+  const buttonStyle = {
+    width: '100%',
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    padding: '14px',
+    borderRadius: '5px',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    transition: 'background 0.3s ease',
+  };
+
+  const handleMouseEnter = (e) => (e.target.style.backgroundColor = '#0056b3');
+  const handleMouseLeave = (e) => (e.target.style.backgroundColor = '#007bff');
+
   return (
-    <div className="form-container">
-      <h2 style={{ paddingTop: '40px' }}>Contact Us</h2>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>Contact Us</h2>
+
+      <form onSubmit={handleSubmit} style={formStyle}>
+        {/* Name */}
+        <div style={groupStyle}>
+          <label htmlFor="name" style={labelStyle}>Name:</label>
           <input
             type="text"
             id="name"
@@ -65,11 +127,13 @@ export default function Form() {
             onChange={handleChange}
             required
             placeholder="Enter your full name"
+            style={inputStyle}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="phone">Phone:</label>
+        {/* Phone */}
+        <div style={groupStyle}>
+          <label htmlFor="phone" style={labelStyle}>Phone:</label>
           <input
             type="tel"
             id="phone"
@@ -78,11 +142,13 @@ export default function Form() {
             onChange={handleChange}
             required
             placeholder="Enter your phone number"
+            style={inputStyle}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
+        {/* Email */}
+        <div style={groupStyle}>
+          <label htmlFor="email" style={labelStyle}>Email:</label>
           <input
             type="email"
             id="email"
@@ -91,17 +157,20 @@ export default function Form() {
             onChange={handleChange}
             required
             placeholder="Enter your email address"
+            style={inputStyle}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="country">Country:</label>
+        {/* Country */}
+        <div style={groupStyle}>
+          <label htmlFor="country" style={labelStyle}>Country:</label>
           <select
             id="country"
             name="country"
             value={formData.country}
             onChange={handleChange}
             required
+            style={selectStyle}
           >
             <option value="">Select your country</option>
             <option value="USA">United States</option>
@@ -116,75 +185,16 @@ export default function Form() {
           </select>
         </div>
 
-        <button type="submit" className="submit-btn">
+        {/* Submit */}
+        <button
+          type="submit"
+          style={buttonStyle}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           Submit
         </button>
       </form>
-
-      <style jsx>{`
-        .form-container {
-          max-width: 500px;
-          margin: 0 auto;
-          padding: 140px;
-          font-family: Arial, sans-serif;
-        }
-
-        .form {
-          background: #f9f9f9;
-          padding: 20px;
-          border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-          margin-bottom: 15px;
-        }
-
-        label {
-          display: block;
-          margin-bottom: 5px;
-          font-weight: bold;
-          color: #333;
-        }
-
-        input,
-        select {
-          width: 100%;
-          padding: 10px;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          font-size: 14px;
-          box-sizing: border-box;
-        }
-
-        input:focus,
-        select:focus {
-          outline: none;
-          border-color: #007bff;
-          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-
-        .submit-btn {
-          background: #007bff;
-          color: white;
-          padding: 12px 24px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 16px;
-          font-weight: bold;
-        }
-
-        .submit-btn:hover {
-          background: #0056b3;
-        }
-
-        h2 {
-          text-align: center;
-          color: #333;
-          margin-bottom: 20px;
-        }
-      `}</style>
     </div>
   );
 }

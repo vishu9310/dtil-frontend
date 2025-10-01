@@ -1,103 +1,189 @@
-import React from 'react'
- import ElevenImage from '../assets/eleven11.jpg'
- import TwelveImage from '../assets/twelve12.jpg'
- import { useState } from 'react'
- import Form from './Form'
+import React, { useState, useEffect } from "react";
+import ElevenImage from "../assets/eleven11.jpg";
+import TwelveImage from "../assets/twelve12.jpg";
+import Form from "./Form";
+
 export default function GrowthAdvisary() {
+  const [openForms, setOpenForms] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-const [openForms, setOpenForms] = useState(false)
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-    const openForm = () => {
-        setOpenForms(true)
-    }
+  const openForm = () => setOpenForms(true);
+
+  if (openForms) return <Form />;
 
   return (
-    <>
-       { !openForms && <div>
+    <div
+      style={{
+        padding: isMobile ? "20px" : "40px 80px",
+        fontFamily: "Arial, sans-serif",
+        backgroundColor: "#fff",
+        color: "#222",
+      }}
+    >
+      {/* Top section */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: isMobile ? "20px" : "60px",
+          marginBottom: "60px",
+        }}
+      >
+        <img
+          src={ElevenImage}
+          alt="Growth Advisory"
+          style={{
+            width: isMobile ? "100%" : "50%",
+            height: isMobile ? "auto" : "450px",
+            objectFit: "cover",
+            marginTop: isMobile ? "100px" :"60px",
+            borderRadius: "8px",
+          }}
+        />
 
-    <div>
-    <div data-ux ="ImageBlock" className='row-md-6' style={{ height: '600px', width: '750px', backgroundColor: 'white',}}>
-      <img src={ElevenImage} height={450} width={750} style={{paddingTop:'160px'}} />
-    </div>
-    <div className='row-md-6' style={{ height: '450px', width: '750px', backgroundColor: 'white', marginLeft:'799px', marginTop:'-399px' }}>
-        <div className='Hello'>
-            <h6 className='h6'style={{marginTop:'120px'}}>Hello</h6>
-            <h3 className='h3'>At DigiTech, we specialize in driving business transformatio</h3>
-            <p className='p'>We offer expert ICT consulting services for small businesses. <br />Let us help you streamline your technology and maximize your productivity.</p>
-             <div className='button' style={{background:'white', textAlign:'center', marginLeft:'-627px' }}>
-                <button className='btn' onClick={()=>openForm()}>Find More</button>
-             </div>
+        <div style={{ flex: 1, textAlign: isMobile ? "center" : "left" }}>
+          <h6 style={{ marginBottom: "10px", color: "#00aaff" }}>Hello</h6>
+          <h3 style={{ marginBottom: "15px", fontSize: isMobile ? "1.2rem" : "1.6rem" }}>
+            At DigiTech, we specialize in driving business transformation
+          </h3>
+          <p style={{ lineHeight: 1.6, fontSize: isMobile ? "0.9rem" : "1rem" }}>
+            We offer expert ICT consulting services for small businesses. <br />
+            Let us help you streamline your technology and maximize your productivity.
+          </p>
+          <button
+            onClick={openForm}
+            style={{
+              backgroundColor: "#00aaff",
+              border: "none",
+              color: "white",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              cursor: "pointer",
+              marginTop: "15px",
+              fontSize: isMobile ? "0.9rem" : "1rem",
+            }}
+          >
+            Find More
+          </button>
         </div>
-    </div>
-    <div>
-        <h1 style={{marginLeft:"487px", marginTop:"-109px"}}>Services in Growth Advisory</h1>
-    </div>
+      </div>
 
-    <div>
-        <div>
-            <img src={TwelveImage} height={200} width={370} style={{marginLeft:'225px', marginTop:'25px'}} />
-        </div>
-        <div style={{marginLeft:'683px', marginTop:'-222px'}}>
-            <h2>🚀Develop Go-to-Market Strategies</h2>
-            <p>
-                <span>
-                     Successfully entering a market requires more than just a great product. We help businesses <br />
-                     ▴ Dentify and engage with key industry players, distributors, and strategic partners. <br />
-                     ▴ Develop market entry strategies to position your brand effectively.  <br />
-                     ▴ Optimize sales channels to ensure maximum reach and customer acquisition. <br />
-                     ▴ Leverage partnerships for co-branding, joint ventures, and cross-promotions. <br /> 
-                </span>
-            </p>
-        </div>
+      {/* Section Title */}
+      <h1
+        style={{
+          textAlign: "center",
+          marginBottom: "40px",
+          fontSize: isMobile ? "1.5rem" : "2rem",
+        }}
+      >
+        Services in Growth Advisory
+      </h1>
 
-        <div style={{marginLeft:'681px'}}> 
-             <h2> 📊 Evaluate Business Models & Market Potential</h2>
-             <p>
-                <span>
-                    A strong foundation is essential for long-term success. Our team conducts in-depth evaluations to: <br />
-                    ▴ Assess the viability and scalability of your business model. <br />
-                    ▴ Analyze market trends, customer needs, and competitive positioning. <br />
-                    ▴ Identify opportunities for differentiation and sustainable growth. <br />
-                    ▴ Provide data-driven insights to strengthen your market presence. <br />
-                </span>
-             </p>
+      {/* Services Section */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          alignItems: isMobile ? "center" : "flex-start",
+          gap: isMobile ? "20px" : "40px",
+          marginBottom: "60px",
+        }}
+      >
+        <img
+          src={TwelveImage}
+          alt="Service"
+          style={{
+            width: isMobile ? "100%" : "40%",
+            height: isMobile ? "auto" : "250px",
+            borderRadius: "8px",
+            objectFit: "cover",
+          }}
+        />
+
+        <div style={{ flex: 1 }}>
+          <h2 style={{ marginBottom: "10px" }}>🚀 Develop Go-to-Market Strategies</h2>
+          <p style={{ lineHeight: 1.6 }}>
+            Successfully entering a market requires more than just a great product. We help businesses:
+            <br />• Identify and engage with key industry players and partners.
+            <br />• Develop market entry strategies to position your brand effectively.
+            <br />• Optimize sales channels for maximum reach.
+            <br />• Leverage partnerships for co-branding and joint ventures.
+          </p>
         </div>
-        <div style={{marginLeft:'683px'}}>
-            <h2> 🔧 Optimize Operations & Strategy</h2>
-            <p>
-                <span>
-                    Efficient operations are the backbone of a growing business. We work closely with startups to: <br />
-                    ▴ Streamline workflows and enhance productivity. <br />
-                    ▴ Implement scalable processes to support business expansion. <br />
-                    ▴ Optimize pricing, cost structures, and resource allocation. <br />
-                    ▴ Align business execution with long-term strategic goals. <br />
-                </span>
-            </p>
+      </div>
+
+      {/* Other sections */}
+      {[
+        {
+          title: "📊 Evaluate Business Models & Market Potential",
+          text: `A strong foundation is essential for long-term success. Our team conducts evaluations to:
+          • Assess business model viability.
+          • Analyze trends, customer needs, and positioning.
+          • Identify differentiation opportunities.
+          • Provide data-driven insights for growth.`,
+        },
+        {
+          title: "🔧 Optimize Operations & Strategy",
+          text: `Efficient operations are the backbone of growth. We help startups:
+          • Streamline workflows.
+          • Implement scalable processes.
+          • Optimize pricing and costs.
+          • Align execution with strategic goals.`,
+        },
+        {
+          title: "🎯 Ongoing Mentorship & Industry Insights",
+          text: `Execution is key. Our team provides:
+          • Mentorship and expert guidance.
+          • Market intelligence and best practices.
+          • Vision refinement and adaptability.
+          • Networking with investors and leaders.`,
+        },
+        {
+          title: "📈 Accelerate Your Business Growth",
+          text: `Whether launching, scaling, or seeking investment,
+          our Growth Advisory services equip you with the right strategies,
+          insights, and connections to thrive.`,
+        },
+      ].map((section, idx) => (
+        <div
+          key={idx}
+          style={{
+            marginBottom: "40px",
+            textAlign: isMobile ? "center" : "left",
+            width: "100%",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px" }}>{section.title}</h2>
+          <p style={{ lineHeight: 1.6, whiteSpace: "pre-line" }}>{section.text}</p>
         </div>
-        <div style={{marginLeft:'679px'}}>
-            <h2> 🎯 Ongoing Mentorship & Industry Insights</h2>
-            <p>
-                <span>
-                    Beyond strategy, execution is key. Our advisory team provides continuous support to: <br />
-                    ▴ Offer expert mentorship and guidance at every stage of growth. <br />
-                    ▴ Share market intelligence and industry best practices. <br />
-                    ▴ Help refine business vision and adapt strategies to evolving trends. <br />
-                    ▴ Provide networking opportunities with investors, mentors, and industry leaders. <br />
-                </span>
-            </p>
-        </div>
-        <h2 style={{marginLeft:'679px'}}> 📈 Accelerate Your Business Growth</h2>
-        <p style={{marginLeft:'679px'}}>    
-        Whether you're launching, scaling, or seeking investment <br /> our Growth Advisory services equip you with the right strategies <br /> insights, and connections to thrive in competitive markets.
-        </p>
-        <div>
-        <h5 style={{marginLeft:'679px'}}>📩 Get in touch today to explore how we can help your business grow!</h5>
-        </div>
+      ))}
+
+      {/* Footer Call-to-Action */}
+      <div style={{ textAlign: "center", marginTop: "40px" }}>
+        <h4 style={{ marginBottom: "10px" }}>📩 Get in touch today to explore how we can help your business grow!</h4>
+        <button
+          onClick={openForm}
+          style={{
+            backgroundColor: "#00aaff",
+            color: "white",
+            border: "none",
+            padding: "12px 24px",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontSize: isMobile ? "1rem" : "1.1rem",
+          }}
+        >
+          Contact Us
+        </button>
+      </div>
     </div>
-    </div>
-     </div>}
-    
-           {openForms &&  <Form/>}
-            </>
-  )
+  );
 }

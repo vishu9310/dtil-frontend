@@ -53,7 +53,15 @@ function Header() {
 
           {/* Logo */}
           <div className="logo-container">
-           <a href="/" > <h3 className="logo-text" style={{fontSize:"18px"}}>DigiTech Innovation Lab</h3></a>
+<a 
+  href="/" 
+  style={{ textDecoration: 'none', color: '#f1f1f1' }}
+>
+  <h3 style={{ fontSize: '18px', fontWeight: 600, margin: 0 }}>
+    DigiTech Innovation Lab
+  </h3>
+</a>
+
           </div>
 
           {/* Desktop Nav Links */}

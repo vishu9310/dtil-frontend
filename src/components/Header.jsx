@@ -53,20 +53,20 @@ function Header() {
 
           {/* Logo */}
           <div className="logo-container">
-<a 
-  href="/" 
-  style={{ textDecoration: 'none', color: '#f1f1f1' }}
->
-  <h3 style={{ fontSize: '18px', fontWeight: 600, margin: 0 }}>
-    DigiTech Innovation Lab
-  </h3>
-</a>
+            <a
+              href="/"
+              style={{ textDecoration: 'none', color: '#f1f1f1' }}
+            >
+              <h3 style={{ fontSize: '20px', fontWeight: 600, margin: 0 ,marginRight:"100px" }}>
+                DigiTech Innovation Lab
+              </h3>
+            </a>
 
           </div>
 
           {/* Desktop Nav Links */}
           <nav className="desktop-nav">
-       
+
             <Link to="/growthAdvisary">Growth Advisory</Link>
             <Link to="/ConsultingAndAdvisory">Consulting</Link>
             <Link to="/TechnologyTransformation">Technology</Link>
@@ -85,7 +85,7 @@ function Header() {
           <button className="offcanvas-close" onClick={closeMenu} aria-label="Close menu">&times;</button>
         </div>
         <div className="offcanvas-body">
-      
+
           <Link onClick={closeMenu} to="/growthAdvisary">Growth Advisory</Link>
           <Link onClick={closeMenu} to="/ConsultingAndAdvisory">Consulting And Advisory</Link>
           <Link onClick={closeMenu} to="/TechnologyTransformation">Technology Transformation</Link>

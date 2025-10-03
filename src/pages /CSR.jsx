@@ -22,7 +22,7 @@ export default function Csr() {
     >
       {/* Page Title */}
       <div style={{ textAlign: "center", paddingTop: isMobile ? "80px" : "140px" }}>
-        <h1 style={{ fontSize: isMobile ? "1.6rem" : "2rem" }}>
+        <h1 style={{ fontSize: isMobile ? "1.6rem" : "2rem", marginTop:'-77px'}}>
           Our Commitment to Social Responsibility
         </h1>
       </div>

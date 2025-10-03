@@ -8,7 +8,7 @@ import TwentyOneImage from '../assets/twentyone21.jpg';
 export default function OurSolutions() {
   return (
     <div className="solutions-container">
-      <h1 className="section-title">Our Solutions</h1>
+      <h1 className="section-title" style={{marginTop:'49px'}}>Our Solutions </h1>
 
       {/* Section 1 */}
       <div className="section">

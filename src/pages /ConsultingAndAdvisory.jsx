@@ -22,7 +22,7 @@ export default function ConsultingAndAdvisory() {
     >
       {/* Title */}
       <div style={{ textAlign: "center", paddingTop: isMobile ? "80px" : "130px" }}>
-        <h1 style={{ fontSize: isMobile ? "1.6rem" : "2rem" }}>
+        <h1 style={{ fontSize: isMobile ? "1.6rem" : "2rem", marginTop:'-66px' }}>
           Consulting & Advisory Services
         </h1>
       </div>

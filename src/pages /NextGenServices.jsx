@@ -4,7 +4,7 @@ import FiveteenImage from '../assets/fiveteen15.jpg'
 export default function NextGenServices() {
   return (
     <div className="container">
-      <h1 className="title">Next-Gen Services</h1>
+      <h1 className="title" style={{marginTop:'26px'}}>Next-Gen Services</h1>
 
       <div className="image-section">
         <img src={FiveteenImage} alt="Next-Gen" className="service-image" />

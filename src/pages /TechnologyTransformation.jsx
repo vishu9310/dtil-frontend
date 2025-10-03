@@ -4,7 +4,7 @@ import FourteenImage from '../assets/fourteen14.jpg'
 export default function TechnologyTransformation() {
   return (
     <div className="container">
-      <h1 className="main-title">Technology Transformation</h1>
+      <h1 className="main-title" style={{marginTop:'31px'}}>Technology Transformation</h1>
 
       <div className="image-text-section">
         <img src={FourteenImage} alt="Technology Transformation" className="responsive-image" />
